@@ -4,11 +4,10 @@
 
 local m, s, o
 
-if luci.sys.call("pidof dns-forwarder >/dev/null") == 0 then
-	m = Map("dns-forwarder", translate("DNS-Forwarder"), "%s - %s" %{translate("DNS-Forwarder"), translate("RUNNING")})
-else
-	m = Map("dns-forwarder", translate("DNS-Forwarder"), "%s - %s" %{translate("DNS-Forwarder"), translate("NOT RUNNING")})
-end
+
+m = Map("dns-forwarder", translate("DNS-Forwarder"), translate("DNS-Forwarder is a tool for resolving DNS with TCP, can be used as upstream of ChinaDNS/ChinaDNS-NG."))
+
+m:section(SimpleSection).template  = "dns-forwarder/status"
 
 s = m:section(TypedSection, "dns-forwarder", translate("General Setting"))
 s.anonymous   = true
@@ -17,8 +16,8 @@ o = s:option(Flag, "enable", translate("Enable"))
 o.rmempty     = false
 
 o = s:option(Value, "listen_port", translate("Listen Port"))
-o.placeholder = 5353
-o.default     = 5353
+o.placeholder = 5300
+o.default     = 5300
 o.datatype    = "port"
 o.rmempty     = false
 

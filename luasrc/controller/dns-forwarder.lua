@@ -10,4 +10,12 @@ function index()
 	end
 
 	entry({"admin", "services", "dns-forwarder"}, cbi("dns-forwarder"), _("DNS-Forwarder"), 60).dependent = true
+	entry({"admin", "services", "dns-forwarder", "status"}, call("act_status")).leaf = true
+end
+
+function act_status()
+	local e={}
+	e.running=luci.sys.call("pidof dns-forwarder >/dev/null")==0
+	luci.http.prepare_content("application/json")
+	luci.http.write_json(e)
 end
