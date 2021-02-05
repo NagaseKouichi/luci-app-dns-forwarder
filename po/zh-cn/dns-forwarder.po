@@ -2,7 +2,7 @@ msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8\n"
 
 msgid "DNS-Forwarder is a tool for resolving DNS with TCP, can be used as upstream of ChinaDNS/ChinaDNS-NG."
-msgstr "DNS-Forwarder可以通过TCP解析DNS，可作为ChinaDNS/ChinaDNS-NG的上游使用。"
+msgstr "DNS-Forwarder通过TCP解析DNS，防止DNS污染，可作为ChinaDNS/ChinaDNS-NG的上游使用。"
 
 msgid "DNS Server"
 msgstr "上游 DNS"
